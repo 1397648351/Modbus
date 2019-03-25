@@ -30,25 +30,55 @@
         {
             this.txt_send = new System.Windows.Forms.TextBox();
             this.btn_send = new System.Windows.Forms.Button();
+            this.menu_tool = new System.Windows.Forms.MenuStrip();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuitem_heart = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_tool.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_send
             // 
-            this.txt_send.Location = new System.Drawing.Point(12, 12);
+            this.txt_send.Location = new System.Drawing.Point(12, 27);
             this.txt_send.Multiline = true;
             this.txt_send.Name = "txt_send";
-            this.txt_send.Size = new System.Drawing.Size(695, 75);
-            this.txt_send.TabIndex = 0;
+            this.txt_send.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt_send.Size = new System.Drawing.Size(695, 43);
+            this.txt_send.TabIndex = 1;
             // 
             // btn_send
             // 
-            this.btn_send.Location = new System.Drawing.Point(713, 12);
+            this.btn_send.Location = new System.Drawing.Point(713, 25);
             this.btn_send.Name = "btn_send";
             this.btn_send.Size = new System.Drawing.Size(75, 23);
-            this.btn_send.TabIndex = 1;
+            this.btn_send.TabIndex = 0;
             this.btn_send.Text = "发送";
             this.btn_send.UseVisualStyleBackColor = true;
-            this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
+            this.btn_send.Click += new System.EventHandler(this.Btn_Send_Click);
+            // 
+            // menu_tool
+            // 
+            this.menu_tool.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设置ToolStripMenuItem});
+            this.menu_tool.Location = new System.Drawing.Point(0, 0);
+            this.menu_tool.Name = "menu_tool";
+            this.menu_tool.Size = new System.Drawing.Size(800, 25);
+            this.menu_tool.TabIndex = 2;
+            this.menu_tool.Text = "menuStrip1";
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuitem_heart});
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.设置ToolStripMenuItem.Text = "设置";
+            // 
+            // menuitem_heart
+            // 
+            this.menuitem_heart.Name = "menuitem_heart";
+            this.menuitem_heart.Size = new System.Drawing.Size(180, 22);
+            this.menuitem_heart.Text = "心跳启用";
+            this.menuitem_heart.Click += new System.EventHandler(this.Menuitem_Heart_Click);
             // 
             // MainWindow
             // 
@@ -57,8 +87,12 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.txt_send);
+            this.Controls.Add(this.menu_tool);
+            this.MainMenuStrip = this.menu_tool;
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "主界面";
+            this.menu_tool.ResumeLayout(false);
+            this.menu_tool.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +102,9 @@
 
         private System.Windows.Forms.TextBox txt_send;
         private System.Windows.Forms.Button btn_send;
+        private System.Windows.Forms.MenuStrip menu_tool;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuitem_heart;
     }
 }
 

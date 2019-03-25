@@ -14,6 +14,8 @@ namespace ModbusMain
 {
     public partial class MainWindow : Form
     {
+        private bool heartEnabled = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +37,22 @@ namespace ModbusMain
             number++;
         }
 
-        private void btn_send_Click(object sender, EventArgs e)
+        private void Btn_Send_Click(object sender, EventArgs e)
         {
             ModbusTest();
+        }
+
+        private void Menuitem_Heart_Click(object sender, EventArgs e)
+        {
+            if (heartEnabled)
+            {
+                menuitem_heart.Text = "心跳关闭";
+            }
+            else
+            {
+                menuitem_heart.Text = "心跳启用";
+            }
+            heartEnabled = !heartEnabled;
         }
     }
 }
