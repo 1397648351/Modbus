@@ -1,0 +1,642 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="DefaultButtonStyle"
+           TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource ButtonForegroundBrush}" />
+        <!--修改模板属性-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <!--控件模板-->
+                <ControlTemplate TargetType="Button">
+                    <!--背景色-->
+                    <Border x:Name="back"
+                            Opacity="1"
+                            CornerRadius="3">
+                        <Border.BitmapEffect>
+                            <OuterGlowBitmapEffect Opacity="0.7"
+                                                   GlowSize="0"
+                                                   GlowColor="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}" />
+                        </Border.BitmapEffect>
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0"
+                                                 EndPoint="0,1.5">
+                                <GradientBrush.GradientStops>
+                                    <GradientStopCollection>
+                                        <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}"
+                                                      Offset="0" />
+                                        <GradientStop Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Button.Background).(SolidColorBrush.Color)}"
+                                                      Offset="0.4" />
+                                        <GradientStop Color="#FFF"
+                                                      Offset="1" />
+                                    </GradientStopCollection>
+                                </GradientBrush.GradientStops>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <!--前景色及边框-->
+                        <Border x:Name="fore"
+                                BorderThickness="1"
+                                CornerRadius="3"
+                                BorderBrush="{DynamicResource ButtonBorderBrush}"
+                                Background="{DynamicResource ButtonBackgroundBrush}">
+                            <!--按钮内容-->
+                            <ContentPresenter x:Name="content"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}">
+                                <ContentPresenter.BitmapEffect>
+                                    <DropShadowBitmapEffect Color="#000"
+                                                            ShadowDepth="0"
+                                                            Softness="0"
+                                                            Opacity="0" />
+                                </ContentPresenter.BitmapEffect>
+                            </ContentPresenter>
+                        </Border>
+                    </Border>
+                    <!--触发器-->
+                    <ControlTemplate.Triggers>
+                        <!--鼠标移入移出-->
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="6"
+                                                         Duration="0:0:0.2"
+                                                         Storyboard.TargetName="back"
+                                                         Storyboard.TargetProperty="(Border.BitmapEffect).(OuterGlowBitmapEffect.GlowSize)" />
+                                        <ColorAnimation To="#AFFF"
+                                                        BeginTime="0:0:0.2"
+                                                        Duration="0:0:0.2"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                        <ColorAnimation To="#3FFF"
+                                                        BeginTime="0:0:0.2"
+                                                        Duration="0:0:0.2"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                         Storyboard.TargetName="back"
+                                                         Storyboard.TargetProperty="(Border.BitmapEffect).(OuterGlowBitmapEffect.GlowSize)" />
+                                        <ColorAnimation Duration="0:0:0.2"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                        <ColorAnimation Duration="0:0:0.2"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <!--按钮按下弹起-->
+                        <Trigger Property="IsPressed"
+                                 Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="3"
+                                                         Duration="0:0:0.1"
+                                                         Storyboard.TargetName="back"
+                                                         Storyboard.TargetProperty="(Border.BitmapEffect).(OuterGlowBitmapEffect.GlowSize)" />
+                                        <ColorAnimation To="#3AAA"
+                                                        Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                        <ColorAnimation To="#2111"
+                                                        Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                         Storyboard.TargetName="back"
+                                                         Storyboard.TargetProperty="(Border.BitmapEffect).(OuterGlowBitmapEffect.GlowSize)" />
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <!--按钮失效-->
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="#B444" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="0"
+                                                         Duration="0:0:0.3"
+                                                         Storyboard.TargetName="back"
+                                                         Storyboard.TargetProperty="(Border.BitmapEffect).(OuterGlowBitmapEffect.GlowSize)" />
+                                        <DoubleAnimation To="1"
+                                                         Duration="0:0:0.1"
+                                                         Storyboard.TargetName="content"
+                                                         Storyboard.TargetProperty="(ContentPresenter.BitmapEffect).(DropShadowBitmapEffect.Opacity)" />
+                                        <DoubleAnimation To="-135"
+                                                         Duration="0:0:0.1"
+                                                         Storyboard.TargetName="content"
+                                                         Storyboard.TargetProperty="(ContentPresenter.BitmapEffect).(DropShadowBitmapEffect.Direction)" />
+                                        <ColorAnimation To="#FFF"
+                                                        Duration="0:0:0.3"
+                                                        Storyboard.TargetName="content"
+                                                        Storyboard.TargetProperty="(ContentPresenter.BitmapEffect).(DropShadowBitmapEffect.Color)" />
+                                        <ColorAnimation To="#D555"
+                                                        Duration="0:0:0.3"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" />
+                                        <ColorAnimation To="#CEEE"
+                                                        Duration="0:0:0.3"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                        <ColorAnimation To="#CDDD"
+                                                        Duration="0:0:0.3"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                         Storyboard.TargetName="back"
+                                                         Storyboard.TargetProperty="(Border.BitmapEffect).(OuterGlowBitmapEffect.GlowSize)" />
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                         Storyboard.TargetName="content"
+                                                         Storyboard.TargetProperty="(ContentPresenter.BitmapEffect).(DropShadowBitmapEffect.Opacity)" />
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                         Storyboard.TargetName="content"
+                                                         Storyboard.TargetProperty="(ContentPresenter.BitmapEffect).(DropShadowBitmapEffect.Direction)" />
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                        Storyboard.TargetName="content"
+                                                        Storyboard.TargetProperty="(ContentPresenter.BitmapEffect).(DropShadowBitmapEffect.Color)" />
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)" />
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)" />
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                        Storyboard.TargetName="fore"
+                                                        Storyboard.TargetProperty="(Border.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BarButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width"
+                Value="90" />
+        <Setter Property="Height"
+                Value="40" />
+        <Setter Property="Margin"
+                Value="5,0" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource DefaultFontSize}" />
+    </Style>
+    <Style x:Key="ObjectBoxListStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="FontSize"
+                Value="{DynamicResource DefaultFontSize}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource ObjectBoxForegroundBrush}" />
+        <Setter Property="Width"
+                Value="170" />
+        <Setter Property="Height"
+                Value="140" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="outborder"
+                            BorderBrush="Transparent"
+                            BorderThickness="2"
+                            CornerRadius="3">
+                        <Border x:Name="inborder"
+                                BorderBrush="{DynamicResource ObjectBoxBorderColorBrush}"
+                                BorderThickness="2"
+                                CornerRadius="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Rectangle StrokeThickness="0"
+                                           Fill="{TemplateBinding Background}"
+                                           Stroke="Black" />
+                                <Border Grid.Row="1"
+                                        HorizontalAlignment="Stretch"
+                                        BorderThickness="0,1,0,0"
+                                        BorderBrush="{DynamicResource ObjectBoxBorderColorBrush}"
+                                        Background="{DynamicResource ObjectBoxTextBackgroundBrush}">
+                                    <TextBlock TextWrapping="Wrap"
+                                               Text="{TemplateBinding Content}"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Style="{DynamicResource DefaultTextBlockStyle}" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused"
+                                 Value="True">
+                            <Setter Property="BorderBrush"
+                                    TargetName="inborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                            <Setter Property="BorderThickness"
+                                    TargetName="inborder"
+                                    Value="2" />
+                            <Setter Property="BorderBrush"
+                                    TargetName="outborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsDefaulted"
+                                 Value="True" />
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="IsFocused"
+                                           Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush"
+                                    TargetName="inborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                            <Setter Property="BorderThickness"
+                                    TargetName="inborder"
+                                    Value="2" />
+                            <Setter Property="BorderBrush"
+                                    TargetName="outborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                        </MultiTrigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True" />
+                        <Trigger Property="IsEnabled"
+                                 Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ObjectBoxListStyle1"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width"
+                Value="107" />
+        <Setter Property="Height"
+                Value="132" />
+        <Setter Property="FontFamily"
+                Value="Impact" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ObjectBoxFontSize}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource ObjectBoxForegroundBrush1}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="outborder"
+                            BorderBrush="Transparent"
+                            BorderThickness="1">
+                        <Border x:Name="inborder"
+                                Background="{DynamicResource ObjectBoxBackgroundBrush1}"
+                                BorderBrush="{DynamicResource ObjectBoxBorderColorBrush1}"
+                                BorderThickness="2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="32" />
+                                </Grid.RowDefinitions>
+                                <Rectangle StrokeThickness="0"
+                                           Fill="{TemplateBinding Background}"
+                                           Stroke="Black" />
+                                <Border Grid.Row="1"
+                                        HorizontalAlignment="Stretch"
+                                        BorderThickness="0,1,0,0"
+                                        BorderBrush="{DynamicResource ObjectBoxBorderColorBrush1}"
+                                        Background="{DynamicResource ObjectBoxTextBackgroundBrush1}">
+                                    <TextBlock TextWrapping="Wrap"
+                                               Text="{TemplateBinding Content}"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"
+                                               Margin="8,0"
+                                               Style="{DynamicResource DefaultTextBlockStyle}" />
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsFocused"
+                                 Value="True">
+                            <Setter Property="BorderBrush"
+                                    TargetName="inborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                            <Setter Property="BorderThickness"
+                                    TargetName="inborder"
+                                    Value="2" />
+                            <Setter Property="BorderBrush"
+                                    TargetName="outborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsDefaulted"
+                                 Value="True" />
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="IsFocused"
+                                           Value="False" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="BorderBrush"
+                                    TargetName="inborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                            <Setter Property="BorderThickness"
+                                    TargetName="inborder"
+                                    Value="2" />
+                            <Setter Property="BorderBrush"
+                                    TargetName="outborder"
+                                    Value="{DynamicResource ObjectBoxFocusedBorderColorBrush}" />
+                        </MultiTrigger>
+                        <Trigger Property="IsPressed"
+                                 Value="True" />
+                        <Trigger Property="IsEnabled"
+                                 Value="False" />
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MetroButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border"
+                                Background="{DynamicResource MetroButtonBrush}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True"
+                                Opacity="1">
+                            <TextBlock Text="{TemplateBinding Content}"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="{DynamicResource MetroButtonTextFontSize}"
+                                       Margin="0,0,0,2" />
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#AA2F96B4" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="border"
+                                    Property="Opacity"
+                                    Value="0.2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="MetroImageButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="5" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Border x:Name="border"
+                                Background="{DynamicResource MetroButtonBrush}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True">
+                            <StackPanel Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <Rectangle StrokeThickness="0"
+                                           Fill="{TemplateBinding Background}"
+                                           Width="40"
+                                           Height="40"
+                                           Stroke="Black" />
+                                <TextBlock Text="{TemplateBinding Content}"
+                                           TextWrapping="Wrap"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="{DynamicResource MetroButtonTextFontSize}"
+                                           Margin="0,5,0,0" />
+                            </StackPanel>
+                        </Border>
+                        <Border x:Name="shadeBorder"
+                                Background="#44000000"
+                                Visibility="Collapsed" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#AA2F96B4" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter TargetName="shadeBorder"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                        </Trigger>
+                        <!--<Trigger Property="IsPressed"
+                                 Value="True">
+                            <Setter TargetName="border"
+                                    Property="Background"
+                                    Value="#FF2A89A4" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DefaultImageButtonStyle"
+           TargetType="{x:Type Button}"
+           BasedOn="{StaticResource DefaultButtonStyle}">
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Image Source="{TemplateBinding Background}"
+                           Stretch="Uniform"
+                           Width="{TemplateBinding Width}"
+                           Height="{TemplateBinding Height}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver"
+                     Value="True">
+                <Setter Property="BorderThickness"
+                        Value="1" />
+                <Setter Property="Background"
+                        Value="Transparent" />
+            </Trigger>
+            <Trigger Property="IsPressed"
+                     Value="True">
+                <Setter Property="BorderThickness"
+                        Value="1" />
+                <Setter Property="Background"
+                        Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--WindowBase-->
+    <Style x:Key="WinMinBtnStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="Width"
+                Value="31" />
+        <Setter Property="Height"
+                Value="31" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="0,-1,-1,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="MainBorder"
+                            Background="Transparent">
+                        <Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="MainBorder"
+                                    Property="Background"
+                                    Value="#FF33A58D" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="WinCloseBtnStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="OverridesDefaultStyle"
+                Value="True" />
+        <Setter Property="Width"
+                Value="31" />
+        <Setter Property="Height"
+                Value="31" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Margin"
+                Value="0,-1,-1,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="MainBorder"
+                            Background="Transparent">
+                        <Grid>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="MainBorder"
+                                    Property="Background"
+                                    Value="#FFD44C45" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--DataGridButton-->
+    <Style x:Key="DataGridButtonStyle"
+           TargetType="{x:Type Button}">
+        <Setter Property="Width"
+                Value="70" />
+        <Setter Property="Height"
+                Value="34" />
+        <Setter Property="Margin"
+                Value="5,0" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+    </Style>
+</ResourceDictionary>

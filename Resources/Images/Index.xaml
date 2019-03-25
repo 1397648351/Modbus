@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ImageSource x:Key="Img_bg">Base/bg1.png</ImageSource>
+    <ImageSource x:Key="Img_listbox">Base/listbox.png</ImageSource>
+    <ImageSource x:Key="Img_warning">Base/warning.png</ImageSource>
+    <ImageSource x:Key="Img_refresh_32">Base/refresh_24.png</ImageSource>
+    <ImageSource x:Key="Img_logout">Base/logout.png</ImageSource>
+    <ImageSource x:Key="Img_logo">Base/logo.png</ImageSource>
+    <ImageSource x:Key="Img_browser">Other/browser.png</ImageSource>
+    <ImageSource x:Key="Img_grp_barchart">Other/grp_barchart.png</ImageSource>
+    <ImageSource x:Key="Img_grp_network">Other/grp_network.png</ImageSource>
+    <ImageSource x:Key="Img_grp_controller">Other/grp_controller.png</ImageSource>
+    <ImageSource x:Key="Img_grp_environment">Other/grp_environment.png</ImageSource>
+    <ImageSource x:Key="Img_grp_video">Other/grp_video.png</ImageSource>
+    <ImageSource x:Key="Img_mainmenu_help">Other/mainmenu_help.png</ImageSource>
+    <ImageSource x:Key="Img_mainmenu_resource">Other/mainmenu_resource.png</ImageSource>
+    <ImageSource x:Key="Img_mainmenu_stat">Other/mainmenu_stat.png</ImageSource>
+    <ImageSource x:Key="Img_if_card">Other/if_card.png</ImageSource>
+    <ImageSource x:Key="Img_graph">Other/graph_24.png</ImageSource>
+    <ImageSource x:Key="Img_take_in">Other/take_in.png</ImageSource>
+    <ImageSource x:Key="Img_take_out">Other/take_out.png</ImageSource>
+</ResourceDictionary>

@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="Resources.Controls.IPBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Resources.Controls">
+    <Border BorderBrush="{DynamicResource IPBoxBorderBrush}"
+            BorderThickness="1">
+        <Border.Resources>
+            <Style TargetType="{x:Type local:IPTextBox}">
+                <Setter Property="Background"
+                        Value="Transparent" />
+                <Setter Property="BorderThickness"
+                        Value="0" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalContentAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="2" />
+            </Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource IPBoxForegroundBrush}" />
+                <Setter Property="VerticalAlignment"
+                        Value="Center" />
+            </Style>
+        </Border.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <local:IPTextBox x:Name="ipTextBox1"
+                             Grid.Column="0"
+                             TextChanged="ipTextBox_TextChanged" />
+            <TextBlock Grid.Column="1"
+                       Text="." />
+            <local:IPTextBox x:Name="ipTextBox2"
+                             Grid.Column="2"
+                             TextChanged="ipTextBox_TextChanged" />
+            <TextBlock Grid.Column="3"
+                       Text="." />
+            <local:IPTextBox x:Name="ipTextBox3"
+                             Grid.Column="4"
+                             TextChanged="ipTextBox_TextChanged" />
+            <TextBlock Grid.Column="5"
+                       Text="." />
+            <local:IPTextBox x:Name="ipTextBox4"
+                             Grid.Column="6"
+                             TextChanged="ipTextBox_TextChanged" />
+        </Grid>
+    </Border>
+</UserControl>

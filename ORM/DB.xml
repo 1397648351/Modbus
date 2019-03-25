@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <type value="mysql"/>
+  <hostname value="192.168.100.199" />
+  <username value="root" />
+  <password value="root123456" />
+  <database value="bifms" />
+  <hostport value="3306" />
+  <charset value="utf8" />
+  <params>
+    <SslMode value="none"/>
+    <ConnectionTimeout value ="15" />
+  </params>
+</configuration>
+
+
+<!--<type value="oracle"/>
+<hostname value="121.43.104.82/orcl" />
+<username value="njbosa" />
+<password value="njbosa" />-->

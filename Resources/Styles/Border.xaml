@@ -1,0 +1,114 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="DefaultBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource ControlBorderColorBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+    </Style>
+    <Style x:Key="ControlBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource ControlBorderColorBrush}" />
+        <Setter Property="BorderThickness"
+                Value="2" />
+    </Style>
+    <Style x:Key="LightBorderStyle"
+           TargetType="{x:Type Border}"
+           BasedOn="{StaticResource ControlBorderStyle}">
+        <Setter Property="Background"
+                Value="{DynamicResource LightBorderBrush}" />
+        <Setter Property="Margin"
+                Value="2" />
+    </Style>
+    <Style x:Key="InnerLightBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="Background"
+                Value="{DynamicResource AccentColorBrush3}" />
+        <Setter Property="Effect">
+            <Setter.Value>
+                <BlurEffect Radius="10" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DialogWindowFooterStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="Background"
+                Value="{DynamicResource DialogBackgroundBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DialogBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0,1,0,0" />
+        <Setter Property="Height"
+                Value="60" />
+    </Style>
+    <Style x:Key="DialogFormCategoryBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DialogBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0,0,0,2" />
+        <Setter Property="Padding"
+                Value="0,3" />
+        <Setter Property="Margin"
+                Value="0,5" />
+    </Style>
+    <Style x:Key="DialogFormTitleFirstBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="Background"
+                Value="{DynamicResource DialogBackgroundBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DialogBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Width"
+                Value="100" />
+        <Setter Property="Padding"
+                Value="3" />
+    </Style>
+    <Style x:Key="DialogFormValueFirstBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DialogBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0,1,1,1" />
+        <Setter Property="Padding"
+                Value="3" />
+    </Style>
+    <Style x:Key="DialogFormTitleBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="Background"
+                Value="{DynamicResource DialogBackgroundBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DialogBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1,0,1,1" />
+        <Setter Property="Width"
+                Value="100" />
+        <Setter Property="Padding"
+                Value="3" />
+    </Style>
+    <Style x:Key="DialogFormValueBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DialogBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0,0,1,1" />
+        <Setter Property="Padding"
+                Value="3" />
+    </Style>
+    <Style x:Key="PromptBorderStyle"
+           TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness"
+                Value="3" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="Background"
+                Value="#EE0B1A31" />
+        <Setter Property="HorizontalAlignment"
+                Value="Right" />
+        <Setter Property="VerticalAlignment"
+                Value="Bottom" />
+    </Style>
+</ResourceDictionary>

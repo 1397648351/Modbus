@@ -1,0 +1,93 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+    <!--坐标轴文本样式-->
+    <Style x:Key="AxisStyle"
+           TargetType="{x:Type lvc:Axis}">
+        <Setter Property="FontFamily"
+                Value="{DynamicResource DefaultFont}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ChartAxisFontSize}" />
+    </Style>
+    <!--竖向柱状图样式-->
+    <Style x:Key="ColumnSeriesStyle"
+           TargetType="{x:Type lvc:ColumnSeries}">
+        <Setter Property="FontFamily"
+                Value="{DynamicResource DefaultFont}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ChartAxisFontSize}" />
+        <Setter Property="FontWeight"
+                Value="Normal" />
+        <Setter Property="DataLabels"
+                Value="True" />
+        <Setter Property="MaxColumnWidth"
+                Value="10" />
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1"
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FF01FDCC"
+                                  Offset="0" />
+                    <GradientStop Color="#FF1295C9"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--横向柱状图样式-->
+    <Style x:Key="RowSeriesStyle"
+           TargetType="{x:Type lvc:RowSeries}">
+        <Setter Property="FontFamily"
+                Value="{DynamicResource DefaultFont}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="FontSize"
+                Value="{DynamicResource ChartAxisFontSize}" />
+        <Setter Property="FontWeight"
+                Value="Normal" />
+        <Setter Property="DataLabels"
+                Value="True" />
+        <Setter Property="MaxRowHeigth"
+                Value="10" />
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0,0"
+                                     StartPoint="1,1">
+                    <GradientStop Color="#FF01FDCC" />
+                    <GradientStop Color="#FF1295C9"
+                                  Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="LineSeriesStyle"
+           TargetType="{x:Type lvc:LineSeries}">
+        <!--<Setter Property="Fill"
+                Value="Transparent" />-->
+        <Setter Property="PointGeometrySize"
+                Value="5" />
+    </Style>
+    <!--刻度线-->
+    <Style x:Key="NoSeparatorStyle"
+           TargetType="{x:Type lvc:Separator}">
+        <Setter Property="StrokeThickness"
+                Value="0" />
+        <Setter Property="StrokeDashArray"
+                Value="0" />
+        <Setter Property="Stroke"
+                Value="Transparent" />
+    </Style>
+    <Style x:Key="SeparatorStyle"
+           TargetType="{x:Type lvc:Separator}">
+        <Setter Property="StrokeThickness"
+                Value="1" />
+        <Setter Property="StrokeDashArray"
+                Value="1" />
+        <Setter Property="Stroke"
+                Value="#AA096898" />
+    </Style>
+</ResourceDictionary>

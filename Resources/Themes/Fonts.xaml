@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--Default Font-->
+    <FontFamily x:Key="DefaultFont">Microsoft YaHei</FontFamily>
+    <!--FontSize-->
+    <sys:Double x:Key="DefaultFontSize">15</sys:Double>
+    <sys:Double x:Key="SmallFontSize">12</sys:Double>
+    <sys:Double x:Key="WaitFontSize">18</sys:Double>
+    <sys:Double x:Key="WindowTitleFontSize">20</sys:Double>
+    <sys:Double x:Key="DataGridFontSize">16</sys:Double>
+    <sys:Double x:Key="WindowTabFontSize">15</sys:Double>
+    <sys:Double x:Key="MenuFontSize">15</sys:Double>
+    <sys:Double x:Key="ListBoxFontSize">15</sys:Double>
+    <sys:Double x:Key="EventTitleFontSize">15</sys:Double>
+    <sys:Double x:Key="EventTextFontSize">12</sys:Double>
+    <sys:Double x:Key="MetroButtonTextFontSize">12</sys:Double>
+    <sys:Double x:Key="ObjectBoxFontSize">18</sys:Double>
+    <sys:Double x:Key="ChartAxisFontSize">10</sys:Double>
+</ResourceDictionary>

@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="WindowBase.xaml" />
+        <ResourceDictionary Source="Waiting.xaml" />
+        <ResourceDictionary Source="IButtonTabControl.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

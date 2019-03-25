@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:Resources.Converters">
+    <converter:TrueToFalseConverter x:Key="TrueToFalseConverter" />
+    <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"
+                                         CollapseWhenInvisible="True" />
+    <converter:VisibleToCollapsedConverter x:Key="VisibleToCollapsedConverter" />
+    <converter:IntToBoolConverter x:Key="IntToBoolConverter" />
+</ResourceDictionary>
